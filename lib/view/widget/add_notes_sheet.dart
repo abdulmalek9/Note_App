@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:note/view/constent.dart';
+import 'package:note/view/widget/custom_bottun.dart';
 import 'package:note/view/widget/custom_text_field.dart';
 
 class AddNotesSheet extends StatelessWidget {
@@ -6,33 +8,35 @@ class AddNotesSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: const [
-        SizedBox(
-          height: 24,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: SingleChildScrollView(
+        child: Column(
+          children: const [
+            SizedBox(
+              height: 30,
+            ),
+            CustomTextFiled(
+              hintText: "Title",
+              maxLine: 1,
+            ),
+            SizedBox(
+              height: 16,
+            ),
+            CustomTextFiled(
+              hintText: "Content",
+              maxLine: 5,
+            ),
+            SizedBox(
+              height: 80,
+            ),
+            CustomButton(),
+            SizedBox(
+              height: 24,
+            ),
+          ],
         ),
-        CustomTextFiled(
-          hintText: "Title",
-          maxLine: 1,
-        ),
-        CustomTextFiled(
-          hintText: "Content",
-          maxLine: 5,
-        ),
-        CustomButton(),
-      ],
-    );
-  }
-}
-
-class CustomButton extends StatelessWidget {
-  const CustomButton({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      height: 55,
+      ),
     );
   }
 }
