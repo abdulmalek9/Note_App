@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomNotesCard extends StatelessWidget {
-  CustomNotesCard({this.cardColor});
-  Color? cardColor;
+  const CustomNotesCard({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -13,7 +13,7 @@ class CustomNotesCard extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16.0),
-        color: cardColor,
+        color: const Color(0xffFFCC80),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
