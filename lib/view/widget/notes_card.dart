@@ -39,7 +39,7 @@ class CustomNotesCard extends StatelessWidget {
                 child: Text(
                   "Build Your Career with abdulmalek_ak9",
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 18,
                     color: Colors.black.withOpacity(.5),
                   ),
                 ),
