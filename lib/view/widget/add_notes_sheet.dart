@@ -11,22 +11,23 @@ class AddNotesSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: SingleChildScrollView(
-        child: BlocConsumer<AddNoteCubit, AddNoteState>(
-          listener: (context, state) {
-            if (state is AddNoteFaliuer) {
-              print("erorr ${state.errorname}");
-            }
-            if (state is AddNoteSucces) {
-              Navigator.pop(context);
-            }
-          },
-          builder: (context, state) {
-            return const ModalProgressHUD(
-                inAsyncCall: State is AddNoteLoding ? true : false,
-                child: AddNotesForm());
-          },
-        ),
+      child: BlocConsumer<AddNoteCubit, AddNoteState>(
+        listener: (context, state) {
+          if (state is AddNoteFaliuer) {
+            print("erorr ${state.errorname}");
+          }
+          if (state is AddNoteSucces) {
+            Navigator.pop(context);
+          }
+        },
+        builder: (context, state) {
+          return const ModalProgressHUD(
+            inAsyncCall: State is AddNoteLoding ? true : false,
+            child: SingleChildScrollView(
+              child: AddNotesForm(),
+            ),
+          );
+        },
       ),
     );
   }
