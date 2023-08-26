@@ -5,10 +5,13 @@ import 'custom_search_icon.dart';
 
 class NotesViewAppBar extends StatelessWidget {
   const NotesViewAppBar(
-      {super.key, required this.text, required this.customIcon});
+      {super.key,
+      required this.text,
+      required this.customIcon,
+      this.onperssed});
   final String text;
   final IconData customIcon;
-
+  final void Function()? onperssed;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -19,8 +22,9 @@ class NotesViewAppBar extends StatelessWidget {
             fontSize: 24,
           ),
         ),
-        Spacer(),
+        const Spacer(),
         CustomSearchIcon(
+          onperssed: onperssed,
           customIcon: customIcon,
         ),
       ],
